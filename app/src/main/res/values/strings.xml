@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Chatty Chat</string>
+    <string name="send_button">Send button</string>
+    <string name="user_name">Guest</string>
+    <string name="greeting_message">Hello to our message App!</string>
+    <string name="message_date">02-10-19</string>
+    <string name="avatar">Avatar</string>
 </resources>
