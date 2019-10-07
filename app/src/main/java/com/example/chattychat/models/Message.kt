@@ -1,5 +1,11 @@
 package com.example.chattychat.models
 
-class Message(val title: String, val userId: String, val userAvatar: String, val text: String, val date: String) {
-    val id: String? = null
+class Message(
+        val userName: String,
+        val messageBody: String,
+        val userId: String,
+        val userAvatar: String,
+        val text: String,
+        val timeStamp: String) {
+    val _id: String? = null
 }
