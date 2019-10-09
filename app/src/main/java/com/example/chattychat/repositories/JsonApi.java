@@ -9,37 +9,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Observable;
+import io.reactivex.Single;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface JsonApi {
-
+    @Headers("Content-Type: application/json; charset=utf-8")
     @POST("account/register")
-    Observable<Account> createAccount(@Body Account account);
+    Call<ResponseBody> createAccount(@Body Account account);
 
     @POST("account/login")
-    Observable<Account> loginAccount(@Body Account account);
+    Call<Account> login(@Body Account account);
 
     @POST("user/add")
-    Observable<User> addUser(@Body User user);
+    Call<User> addUser(@Body User user);
 
     @POST("channel/add")
-    Observable<Channel> addChannel(@Body Channel channel);
+    Call<Channel> addChannel(@Body Channel channel);
 
     @GET("user/{id}")
-    Observable<User> getUserById(@Path("id") String id);
+    Call<User> getUserById(@Path("id") String id);
 
     @GET("user/byEmail/{email}")
-    Observable<User> getUserByEmail(@Path("email") String email);
+    Call<User> getUserByEmail(@Path("email") String email);
 
     @GET("channel")
-    Observable<Channel> getChannels();
+    Call<Channel> getChannels();
 
     @Headers("Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkOGRkMGI1MjIwNjMzMDAxNzdlZTRlMyIsImlhdCI6MTU2OTc0NTA0OCwiZXhwIjoxNTc3NTIxMDQ4fQ.goyWNXZmwvWeHKDWy_5Ay41-ij-kWKm7piCnt73clMI")
     @GET("message/byChannel/{id}")
-    Observable<ArrayList<Message>> getMessages(@Path("id") String channelId);
+    Call<ArrayList<Message>> getMessages(@Path("id") String channelId);
 
 }

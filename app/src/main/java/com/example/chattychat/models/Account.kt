@@ -1,5 +1,11 @@
 package com.example.chattychat.models
 
-class Account(val password: String, val email: String) {
-    val id: String? = null
+import com.google.gson.annotations.SerializedName
+
+class Account(
+        @SerializedName("email") val email: String,
+        @SerializedName("password") val password: String
+) {
+    val user: String? = null
+    val token: String? = null
 }
